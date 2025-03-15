@@ -25,7 +25,7 @@ venv/
 env/
 ENV/
 .env
-
+.venv
 # Jupyter Notebooks
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
@@ -92,3 +92,6 @@ wheels/
 .pytest_cache/
 .coverage
 htmlcov/
+
+# fablib related
+fablib_config.txt
