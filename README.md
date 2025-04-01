@@ -11,7 +11,7 @@ This repository contains scripts and configurations for setting up a distributed
 - FABRIC testbed account and project
 - Python 3.6+
 - FABRIC CLI credentials
-- SSH keys configured in `$HOME/fabric_config/`
+- SSH keys configured in `$HOME/fabric/`
 
 ## Setup
 
