@@ -10,7 +10,7 @@ if __name__ == "__main__":
     bastion_key_location = os.getenv("BASTION_KEY_LOCATION")
     project_id = os.getenv("PROJECT_ID")
     token_location = os.getenv("TOKEN_LOCATION")
-    
+    sliver_key_location = os.getenv("SLIVER_KEY_LOCATION")    
     
     # Expand ~ to absolute path
     # if fabric_rc_location and fabric_rc_location.startswith('~'):
@@ -53,7 +53,7 @@ if __name__ == "__main__":
     slice = fablib.new_slice(name=slice_name)
     print("specified slice")
 
-    # # Create node
+    # Create nodes
     node1 = slice.add_node(name="node_1", image='default_ubuntu_22')
     node2 = slice.add_node(name="node_2", image='default_ubuntu_22')
     print("specified nodes")
@@ -64,6 +64,29 @@ if __name__ == "__main__":
         slice.save('slice.graphml')
     except Exception as e:
         print("exception: ", e)
+    
+    # wait until slice nodes are ready for ssh
+    slice.wait_ssh()
+
+    # Add sliver key to nodes
+    try:
+        with open(sliver_key_location, 'r') as f:
+            sliver_key = f.read()
+            print("sliver key:\n", sliver_key)
+    except Exception as e:
+        print("Exception occured: ", e)
+
+    try:
+        node1 = slice.get_node("node_1")
+        node1.add_public_key(sliver_public_key=sliver_key)
+        print("Added sliver_key.pub to node1")
+    except Exception as e:
+        print("Exception occured: ", e)
+    try:
+        node2 = slice.get_node("node_2")
+        node2.add_public_key(sliver_public_key=sliver_key)
+        print("Added sliver_key.pub to node2")
+    except Exception as e:
+        print("Exception occured: ", e)
 
     print(0)
-
