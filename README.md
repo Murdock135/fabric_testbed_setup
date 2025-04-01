@@ -1,37 +1,44 @@
-# FABRIC Test Environment Setup
+# Big Data Principles Coursework
 
-A toolkit for creating and managing FABRIC testbed environments.
+Repository for managing FABRIC testbed infrastructure for the Big Data Principles course.
 
 ## Overview
 
-This project provides scripts to create, configure, and connect to FABRIC testbed slices for distributed systems experiments and big data applications.
+This repository contains scripts and configurations for setting up a distributed computing environment on the [FABRIC testbed](https://fabric-testbed.net/). It manages the creation of virtual machines, network configuration, and SSH access to nodes.
 
-## Features
+## Prerequisites
 
-- Automated slice and node creation
-- SSH configuration generation
-- Node status checking utilities
-
-## Requirements
-
+- FABRIC testbed account and project
 - Python 3.6+
-- FABRIC account credentials
-- Environment variables configured
+- FABRIC CLI credentials
+- SSH keys configured in `$HOME/fabric_config/`
 
-## Quick Start
+## Setup
 
-1. Configure environment variables (create a `.env` file based on `fabric_config.txt`)
-2. Run `python configure.py` to create slices and nodes
-3. Use utilities in `utilities/` to check node status
+1. Set environment variables (either in your shell or using a `.env` file):
+   - `FABRIC_RC`: Path to FABRIC RC file
+   - `BASTION_KEY_LOCATION`: Path to FABRIC bastion key
+   - `PROJECT_ID`: Your FABRIC project ID
+   - `TOKEN_LOCATION`: Path to FABRIC token file
+   - `SLIVER_KEY_LOCATION`: Path to your sliver SSH key
 
-## SSH Access
+2. Run the configuration script:
+   ```
+   python configure.py
+   ```
 
-Once configured, access nodes using:
-```
-ssh -F ~/.ssh/fabric_ssh_config -i ~/fabric_config/sliver_key centos@<node-ip>
-```
+3. Use the utilities to verify your nodes are running:
+   ```
+   python utilities/check_nodes.py
+   ```
 
-## Utilities
+4. Connect to your nodes using the SSH commands provided
 
-- `check_nodes.py`: Display available nodes and SSH commands
-- `check_slice.py`: Get detailed slice information
+## Troubleshooting
+
+If you cannot connect to nodes, verify:
+- Your SSH keys are properly configured
+- The slice is in the "Active" state
+- The nodes' reservation status is "Active"
+
+Use `utilities/check_slice.py` for detailed diagnostics.
