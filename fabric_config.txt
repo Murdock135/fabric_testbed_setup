@@ -1,0 +1,16 @@
+export FABRIC_ORCHESTRATOR_HOST=orchestrator.fabric-testbed.net
+export FABRIC_CREDMGR_HOST=cm.fabric-testbed.net
+export FABRIC_CORE_API_HOST=uis.fabric-testbed.net
+export FABRIC_AM_HOST=artifacts.fabric-testbed.net
+export FABRIC_TOKEN_LOCATION=/home/zayan/fabric/.token.json
+export FABRIC_PROJECT_ID=68926660-da26-475d-9c40-50ebf0a5a812
+export FABRIC_BASTION_HOST=bastion.fabric-testbed.net
+export FABRIC_BASTION_USERNAME=qzic2d_0000299050
+export FABRIC_BASTION_KEY_LOCATION=/home/zayan/fabric/bastion_key
+export FABRIC_SLICE_PUBLIC_KEY_FILE=$HOME/fabric_config/sliver_key.pub
+export FABRIC_SLICE_PRIVATE_KEY_FILE=$HOME/fabric_config/sliver_key
+export FABRIC_AVOID=
+export FABRIC_SSH_COMMAND_LINE=ssh -i {{ _self_.private_ssh_key_file }} -F /home/zayan/work/fabric_config/ssh_config {{ _self_.username }}@{{ _self_.management_ip }}
+export FABRIC_LOG_LEVEL=INFO
+export FABRIC_LOG_FILE=/tmp/fablib/fablib.log
+export FABRIC_BASTION_SSH_CONFIG_FILE=$HOME/fabric_config/ssh_config

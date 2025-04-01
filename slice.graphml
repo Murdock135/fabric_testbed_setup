@@ -1,0 +1,62 @@
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d17" for="node" attr.name="GraphID" attr.type="string"/>
+  <key id="d16" for="node" attr.name="NodeID" attr.type="string"/>
+  <key id="d15" for="node" attr.name="Class" attr.type="string"/>
+  <key id="d14" for="node" attr.name="id" attr.type="string"/>
+  <key id="d13" for="node" attr.name="Type" attr.type="string"/>
+  <key id="d12" for="node" attr.name="Site" attr.type="string"/>
+  <key id="d11" for="node" attr.name="StitchNode" attr.type="string"/>
+  <key id="d10" for="node" attr.name="Name" attr.type="string"/>
+  <key id="d9" for="node" attr.name="ImageRef" attr.type="string"/>
+  <key id="d8" for="node" attr.name="Capacities" attr.type="string"/>
+  <key id="d7" for="node" attr.name="CapacityHints" attr.type="string"/>
+  <key id="d6" for="node" attr.name="CapacityAllocations" attr.type="string"/>
+  <key id="d5" for="node" attr.name="LabelAllocations" attr.type="string"/>
+  <key id="d4" for="node" attr.name="UserData" attr.type="string"/>
+  <key id="d3" for="node" attr.name="MgmtIp" attr.type="string"/>
+  <key id="d2" for="node" attr.name="NodeMap" attr.type="string"/>
+  <key id="d1" for="node" attr.name="ReservationInfo" attr.type="string"/>
+  <key id="d0" for="node" attr.name="labels" attr.type="string"/>
+  <graph edgedefault="undirected">
+    <node id="2833" labels=":GraphNode:NetworkNode">
+      <data key="d0">:GraphNode:NetworkNode</data>
+      <data key="d1">{"error_message": "", "reservation_id": "617bcf4d-b253-4012-9aea-a5d5bb725b54", "reservation_state": "Active"}</data>
+      <data key="d2">["2125ce51-d2bb-447e-a4ec-23d98e24a302", "FW696S3"]</data>
+      <data key="d3">133.69.160.190</data>
+      <data key="d4">{"fablib_data": {"instantiated": "True", "run_update_commands": "False", "post_boot_commands": [], "post_update_commands": []}}</data>
+      <data key="d5">{"instance": "instance-00000a31", "instance_parent": "toky-w2.fabric-testbed.net"}</data>
+      <data key="d6">{"core": 2, "disk": 10, "ram": 8}</data>
+      <data key="d7">{"instance_type": "fabric.c2.m8.d10"}</data>
+      <data key="d8">{"core": 2, "disk": 10, "ram": 8}</data>
+      <data key="d9">default_ubuntu_22,qcow2</data>
+      <data key="d10">node_1</data>
+      <data key="d11">false</data>
+      <data key="d12">TOKY</data>
+      <data key="d13">VM</data>
+      <data key="d14">1</data>
+      <data key="d15">NetworkNode</data>
+      <data key="d16">6617d906-1c79-473d-8907-e5396651db2d</data>
+      <data key="d17">781a132a-f37d-4819-add9-135389e6cef4</data>
+    </node>
+    <node id="2834" labels=":GraphNode:NetworkNode">
+      <data key="d0">:GraphNode:NetworkNode</data>
+      <data key="d1">{"error_message": "", "reservation_id": "316daaeb-c2db-4f87-9f9d-960e4789cf91", "reservation_state": "Active"}</data>
+      <data key="d2">["2125ce51-d2bb-447e-a4ec-23d98e24a302", "FJJF6R3"]</data>
+      <data key="d3">2001:400:a100:3090:f816:3eff:fe9f:2898</data>
+      <data key="d4">{"fablib_data": {"instantiated": "True", "run_update_commands": "False", "post_boot_commands": [], "post_update_commands": []}}</data>
+      <data key="d5">{"instance": "instance-00001c2c", "instance_parent": "cern-w6.fabric-testbed.net"}</data>
+      <data key="d6">{"core": 2, "disk": 10, "ram": 8}</data>
+      <data key="d7">{"instance_type": "fabric.c2.m8.d10"}</data>
+      <data key="d8">{"core": 2, "disk": 10, "ram": 8}</data>
+      <data key="d9">default_ubuntu_22,qcow2</data>
+      <data key="d10">node_2</data>
+      <data key="d11">false</data>
+      <data key="d12">CERN</data>
+      <data key="d13">VM</data>
+      <data key="d14">2</data>
+      <data key="d15">NetworkNode</data>
+      <data key="d16">16f4078e-1c48-4525-95bf-66e97dfa1301</data>
+      <data key="d17">781a132a-f37d-4819-add9-135389e6cef4</data>
+    </node>
+  </graph>
+</graphml>

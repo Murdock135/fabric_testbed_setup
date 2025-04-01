@@ -1,0 +1,14 @@
+UserKnownHostsFile /dev/null
+StrictHostKeyChecking no
+ServerAliveInterval 120 
+
+Host bastion.fabric-testbed.net
+     User qzic2d_0000299050
+     ForwardAgent yes
+     Hostname %h
+     IdentityFile /home/zayan/fabric/bastion_key
+     IdentitiesOnly yes
+
+Host * !bastion.fabric-testbed.net
+     ProxyJump qzic2d_0000299050@bastion.fabric-testbed.net:22
+    
