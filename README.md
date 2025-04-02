@@ -43,6 +43,5 @@ If you cannot connect to nodes, verify:
 
 The repository includes several utility scripts in the `utilities/` directory:
 
-- `check_nodes.py`: Verify your nodes are running correctly
-- `check_slice.py`: Perform detailed diagnostics on your slice
-- `show_nodes.py`: Display information about your nodes
+- `get_ssh_commands.py`: get the ssh commands to access nodes
+- `check_slice.py`: show details about your slice
