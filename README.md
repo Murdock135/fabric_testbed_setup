@@ -20,7 +20,7 @@ This repository contains scripts and configurations for setting up a distributed
    - `BASTION_KEY_LOCATION`: Path to FABRIC bastion key
    - `PROJECT_ID`: Your FABRIC project ID
    - `TOKEN_LOCATION`: Path to FABRIC token file
-   - `SLIVER_KEY_LOCATION`: Path to your sliver SSH key
+   - `SLIVER_KEY_LOCATION`: Path to your *public* SSH key
 
 2. Run the configuration script:
    ```
