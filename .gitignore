@@ -1,3 +1,7 @@
+fabric_config.txt
+fablib_config.txt
+slice.graphml
+
 # Python
 __pycache__/
 *.py[cod]
