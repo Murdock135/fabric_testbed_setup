@@ -1,1 +1,0 @@
-ssh -F ~/.ssh/fabric_ssh_config -i <private sliver key file> centos@1.2.3.4

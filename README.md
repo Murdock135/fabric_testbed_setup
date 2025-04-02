@@ -32,7 +32,10 @@ This repository contains scripts and configurations for setting up a distributed
    python utilities/check_nodes.py
    ```
 
-4. Connect to your nodes using the SSH commands provided
+4. Connect to your nodes using the SSH command template:
+   ```
+   ssh -F ~/.ssh/fabric_ssh_config -i <private sliver key file> centos@<node IP>
+   ```
 
 ## Troubleshooting
 
