@@ -27,12 +27,7 @@ This repository contains scripts and configurations for setting up a distributed
    python configure.py
    ```
 
-3. Use the utilities to verify your nodes are running:
-   ```
-   python utilities/check_nodes.py
-   ```
-
-4. Connect to your nodes using the SSH command template:
+3. Connect to your nodes using the SSH command template:
    ```
    ssh -F ~/.ssh/fabric_ssh_config -i <private sliver key file> centos@<node IP>
    ```
@@ -44,4 +39,10 @@ If you cannot connect to nodes, verify:
 - The slice is in the "Active" state
 - The nodes' reservation status is "Active"
 
-Use `utilities/check_slice.py` for detailed diagnostics.
+## Utilities
+
+The repository includes several utility scripts in the `utilities/` directory:
+
+- `check_nodes.py`: Verify your nodes are running correctly
+- `check_slice.py`: Perform detailed diagnostics on your slice
+- `show_nodes.py`: Display information about your nodes
