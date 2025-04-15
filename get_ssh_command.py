@@ -50,9 +50,9 @@ def _get_ssh_command(fablib: fablib_manager, slice_names: dict, ssh_config_path:
     print(f"Chosen node: {node.get_name()}")
 
     # Construct SSH command
-    node_hostname = node.get_host()
+    user_name = node.get_username()
     node_ip = node.get_management_ip()
-    ssh_command = f"ssh -F {ssh_config_path} -i {sliver_key_path} {node_hostname}@{node_ip}"
+    ssh_command = f"ssh -F {ssh_config_path} -i {sliver_key_path} {user_name}@{node_ip}"
     
     print(f"SSH command: {ssh_command}")
     return ssh_command
@@ -77,7 +77,6 @@ if __name__ == "__main__":
     load_dotenv()
     ssh_config_path = os.getenv("SSH_CONFIG")
     sliver_key_path = os.getenv("SLIVER_KEY_LOCATION_PRIVATE")
-    breakpoint()
 
     # Initialize FablibManager
     token_location = os.path.expanduser('~/fabric/.token.json')
