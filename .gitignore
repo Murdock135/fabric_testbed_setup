@@ -1,6 +1,9 @@
 fabric_config.txt
 fablib_config.txt
 slice.graphml
+$HOME/
+'$HOME'/
+'$HOME'/**
 
 # Python
 __pycache__/
