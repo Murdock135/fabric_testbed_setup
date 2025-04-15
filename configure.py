@@ -58,10 +58,6 @@ if __name__ == "__main__":
     node2 = slice.add_node(name="node_2", image='default_ubuntu_22')
     print("specified nodes")
 
-    # Add network
-    net1 = slice.add_l3network(name='net1', type='IPv4')
-    net2 = slice.add_l3network(name='net2', type='IPv4')
-
     # Submit slice and save
     try:
         slice.submit()
