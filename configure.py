@@ -55,7 +55,7 @@ if __name__ == "__main__":
     print("Creating slice and nodes...")
     print("Available images:")
     print(fablib.get_image_names())
-    slice_name = "8540_project"
+    slice_name = input("Enter slice name: ")
     slice = fablib.new_slice(name=slice_name)
     print("specified slice")
 
