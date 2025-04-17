@@ -60,8 +60,8 @@ if __name__ == "__main__":
     print("specified slice")
 
     # Create nodes
-    node1 = slice.add_node(name="node_1", image='default_ubuntu_22')
-    node2 = slice.add_node(name="node_2", image='default_ubuntu_22')
+    node1 = slice.add_node(name="node_1", image='default_ubuntu_22', disk=50)
+    node2 = slice.add_node(name="node_2", image='default_ubuntu_22', disk=50)
     print("specified nodes")
 
     # Add components (GPU)
