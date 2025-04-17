@@ -41,7 +41,13 @@ if __name__ == "__main__":
     save_path = 'fabric_config.txt'
     fablib.config_file_path = save_path
     fablib.save_config()
-    
+
+    # Print available resources
+    print("Available resources:")
+    print(fablib.get_available_resources())
+    print(50 * "-")
+
+
     print("fablib config:\n")
     print(fablib.show_config(output='text'))
 
@@ -58,9 +64,21 @@ if __name__ == "__main__":
     node2 = slice.add_node(name="node_2", image='default_ubuntu_22')
     print("specified nodes")
 
+    # Add components (GPU)
+    viable_gpus = ['GPU_TeslaT4', 'GPU_RTX6000', 'GPU_A30', 'GPU_A40']
+
+    for gpu in viable_gpus:
+        try:
+            node1.add_component(model=gpu, name=gpu)
+            print(f"added {gpu} to node1")
+            break
+        except Exception as e:
+            print("exception: ", e)
+            print("Trying again...")
+
     # Submit slice and save
     try:
-        slice.submit()
+        slice.submit(wait=True, progress=True)
         slice.save('slice.graphml')
     except Exception as e:
         print("exception: ", e)
@@ -89,4 +107,7 @@ if __name__ == "__main__":
     except Exception as e:
         print("Exception occured: ", e)
 
-    print(0)
+    print(50 * "-")
+    print("Slice created successfully!")
+    print("Slice details:")
+    print(slice.show(output='text'))
