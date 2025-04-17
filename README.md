@@ -1,4 +1,4 @@
-# Big Data Principles Coursework
+# Fabric testbed setup
 
 Repository for managing FABRIC testbed infrastructure for the Big Data Principles course.
 
