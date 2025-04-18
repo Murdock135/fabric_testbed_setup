@@ -25,7 +25,10 @@ def get_slice_names(fablib: fablib_manager):
 
     return slice_names
 
-def _get_ssh_command(fablib: fablib_manager, slice_names: dict, ssh_config_path: str, sliver_key_path: str):
+def _get_ssh_command(fablib: fablib_manager, 
+                     slice_names: dict, 
+                     ssh_config_path: str, 
+                     sliver_key_path: str) -> str:
 
     # Print available slices
     print(f"Available slices")
@@ -83,4 +86,9 @@ if __name__ == "__main__":
     fablib = fablib_manager(token_location=token_location)
 
     slice_names = get_slice_names(fablib)
-    _get_ssh_command(fablib, slice_names, ssh_config_path, sliver_key_path)    
+    ssh_command = _get_ssh_command(fablib, slice_names, ssh_config_path, sliver_key_path)    
+
+    # save ssh command to file
+    save_path = 'ssh_command.txt'
+    with open(save_path, 'w') as f:
+        f.write(ssh_command)
