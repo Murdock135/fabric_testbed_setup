@@ -1,1 +1,1 @@
-ssh -F /home/zayan/fabric/ssh_config -i /home/zayan/fabric/sliver_key ubuntu@131.94.57.26
+ssh -F /home/zayan/fabric/ssh_config -i /home/zayan/fabric/sliver_key ubuntu@131.94.57.43

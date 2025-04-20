@@ -58,7 +58,7 @@ if __name__ == "__main__":
     slice_name = input("Enter slice name: ")
     slice = fablib.new_slice(name=slice_name)
     print("specified slice")
-
+    
     # Create nodes
     node1 = slice.add_node(name="node_1", image='default_ubuntu_22', disk=50, ram=24)
     node2 = slice.add_node(name="node_2", image='default_ubuntu_22', disk=50, ram=24)
@@ -66,15 +66,17 @@ if __name__ == "__main__":
 
     # Add components (GPU)
     viable_gpus = ['GPU_TeslaT4', 'GPU_RTX6000', 'GPU_A30', 'GPU_A40']
-
-    for gpu in viable_gpus:
-        try:
-            node1.add_component(model=gpu, name=gpu)
-            print(f"added {gpu} to node1")
-            break
-        except Exception as e:
-            print("exception: ", e)
-            print("Trying again...")
+    
+    gpu_count = 2
+    for i in range(gpu_count):
+        for gpu in viable_gpus:
+            try:
+                node1.add_component(model=gpu, name=f"gpu_{i}_{gpu}")
+                print(f"Added {i} gpus to node1")
+                break
+            except Exception as e:
+                print("exception: ", e)
+                print("Trying again...")
 
     # Submit slice and save
     try:
