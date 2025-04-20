@@ -1,6 +1,7 @@
 from fabrictestbed_extensions.fablib.fablib import FablibManager as fablib_manager
 import os
 from dotenv import load_dotenv
+import tomllib
 
 load_dotenv(interpolate=True)
 
@@ -11,7 +12,8 @@ if __name__ == "__main__":
     project_id = os.getenv("PROJECT_ID")
     token_location = os.getenv("TOKEN_LOCATION")
     sliver_key_location = os.getenv("SLIVER_KEY_LOCATION")    
-    
+    config_file_path = 'config.toml'
+
     # Expand ~ to absolute path
     # if fabric_rc_location and fabric_rc_location.startswith('~'):
     #    fabric_rc_location = os.path.expanduser(fabric_rc_location)
@@ -42,14 +44,16 @@ if __name__ == "__main__":
     fablib.config_file_path = save_path
     fablib.save_config()
 
-    # Print available resources
-    print("Available resources:")
-    print(fablib.get_available_resources())
-    print(50 * "-")
-
-
     print("fablib config:\n")
     print(fablib.show_config(output='text'))
+    
+    # Load config
+    with open(config_file_path, 'rb') as f:
+        config = tomllib.load(f)
+        print("config: \n", config)
+    
+    # Find site with available resources
+    #TODO
 
     # # Create slice and nodes
     print("Creating slice and nodes...")

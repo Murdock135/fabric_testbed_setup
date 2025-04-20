@@ -1,0 +1,4 @@
+ram=24
+disk=50
+gpu='GPU_RTX6000'
+num_gpus=4
