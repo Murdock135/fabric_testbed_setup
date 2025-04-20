@@ -5,6 +5,13 @@ import tomllib
 
 load_dotenv(interpolate=True)
 
+choice_to_column = {
+    "GPU_RTX6000": "rtx6000_available",
+    "GPU_TeslaT4": "tesla_t4_available",
+    "GPU_A30": "a30_available",
+    "GPU_A40": "a40_available"
+}
+
 if __name__ == "__main__":
     # Set up project in fabric
     fabric_rc_location = os.getenv("FABRIC_RC")
@@ -53,7 +60,7 @@ if __name__ == "__main__":
         print("config: \n", config)
     
     # Find site with available resources
-    #TODO
+    
 
     # # Create slice and nodes
     print("Creating slice and nodes...")
