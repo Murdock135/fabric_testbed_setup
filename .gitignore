@@ -4,6 +4,7 @@ slice.graphml
 $HOME/
 '$HOME'/
 '$HOME'/**
+ssh_command.txt
 
 # Python
 __pycache__/
