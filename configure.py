@@ -59,35 +59,43 @@ if __name__ == "__main__":
         config = tomllib.load(f)
         print("config: \n", config)
     
-    # Find site with available resources
+    gpu = config.get('gpu', 'Unknown')
+    if gpu.lower() == 'unknown':
+        raise NameError("gpu name can't be blank")
+
+    num_gpus = config.get('num_gpus', 1)
+    ram = config.get('ram', 16)
+    disk = config.get('disk', 50)
     
 
-    # # Create slice and nodes
+    # Find site with available resources
+    column_name = choice_to_column[gpu]
+    try:
+        site = fablib.get_random_site(filter_function=lambda x: x[column_name] >= 4)
+    except Exception as e:
+        print("Couldn't find site with specified resources.")
+        print(e)
+
+    print(f"Site with specified resources found. Site: {site}")
+
+    # Create slice and nodes
     print("Creating slice and nodes...")
     print("Available images:")
     print(fablib.get_image_names())
-    slice_name = input("Enter slice name: ")
+    slice_name = config.get('slice_name', 'new_slice')
     slice = fablib.new_slice(name=slice_name)
     print("specified slice")
     
     # Create nodes
-    node1 = slice.add_node(name="node_1", image='default_ubuntu_22', disk=50, ram=24)
-    node2 = slice.add_node(name="node_2", image='default_ubuntu_22', disk=50, ram=24)
+    node1 = slice.add_node(name="node_1", site=site, image='default_ubuntu_22', disk=disk, ram=ram)
     print("specified nodes")
 
     # Add components (GPU)
     viable_gpus = ['GPU_TeslaT4', 'GPU_RTX6000', 'GPU_A30', 'GPU_A40']
     
-    gpu_count = 2
-    for i in range(gpu_count):
-        for gpu in viable_gpus:
-            try:
-                node1.add_component(model=gpu, name=f"gpu_{i}_{gpu}")
-                print(f"Added {i} gpus to node1")
-                break
-            except Exception as e:
-                print("exception: ", e)
-                print("Trying again...")
+    for i in range(num_gpus):
+        node1.add_component(model=gpu, name=f"gpu_{i}_{gpu}")
+        print(f"Added {i} gpus to node1")
 
     # Submit slice and save
     try:
