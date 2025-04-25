@@ -1,4 +1,4 @@
-slice_name='new_slice_more_gpus'
+slice_name='test_slice'
 ram=24
 disk=50
 gpu='GPU_RTX6000'
